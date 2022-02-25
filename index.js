@@ -1,12 +1,18 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+const allEmployees = [];
 
+const newEmployeeFunc = (allEmployees) => {
+    let newEmployee = { empName, position, id, phone, email, github };
+    return allEmployees.push(newEmployee);
+
+}
 
 const questions = () => {
     inquirer.prompt([
         {
-            name: 'name',
+            name: 'empName',
             message: 'Please Enter the employee name:',
             type: 'input',
             validate: inputVerify => {
@@ -28,7 +34,15 @@ const questions = () => {
                 "Manager",
                 'Employee',
                 'intern'
-            ]
+            ],
+            validate: inputVerify => {
+                if (inputVerify) {
+                    return true;
+                }else {
+                    console.log('You have five options! How did you f*** that up?!')
+                    return false;
+                }
+            }
         }, 
         {
             name: 'id',
@@ -86,9 +100,10 @@ const questions = () => {
                 }
             }
         }, 
+        
     
     ])
 };
 
 
-questions()
+questions().then(newEmployeeFunc)
