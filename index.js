@@ -19,6 +19,19 @@ const employeeQuestions = [
         }
     }, 
     {
+        name: 'officeNumb',
+        message: 'Please enter the office number:',
+        type: 'input',
+        validate: inputVerify => {
+            if (isNaN(inputVerify)) {
+                console.log('Please enter the correct type of input.')
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }, 
+    {
         name: 'position',
         message: 'Please Enter the posiition the employee holds:',
         type: 'list',
@@ -56,8 +69,8 @@ const employeeQuestions = [
         message: 'enter employee phone number:',
         type: 'input',
         validate: inputVerify => {
-            if (isNaN(inputVerify) || (inputVerify.length != 7)) {
-                console.log('Please enter the correct type of input (7 numbers).')
+            if (isNaN(inputVerify) || (inputVerify.length != 10)) {
+                console.log('Please enter the correct type of input (10 numbers).')
                 return false;
             } else {
                 return true;
@@ -129,15 +142,17 @@ const main = async () => {
 
         <h1 style = "text-align:center;font-size:25px;color:black;">Employee Name: ${emp.empName}</h1> 
         
-        <h1 style = "text-align:center;font-size:12px;color:black;">Position: ${emp.position}</h1>
+        <h1 style = "text-align:center;font-size:12px;color:black;">Office # (if applicable): ${emp.officeNumb}</h1> 
+        
+        <h1 style = "text-align:center;font-size:20px;color:black;">Position: ${emp.position}</h1>
         
         <h1 style = "text-align:center;font-size:12px;color:black;">Employee ID: ${emp.id}</h1>
         
-        <h1 style = "text-align:center;font-size:12px;color:black;">Phone Number: ${emp.phone}</h1>
+        <h1 style = "text-align:center;font-size:18px;color:black;">Phone Number: ${emp.phone}</h1>
         
-        <h1 style = "text-align:center;font-size:12px;color:black;">Email adress: ${emp.email}</h1>
+        <h1 style = "text-align:center;font-size:12px;color:black;">Email adress:<a href="mailto:${emp.email}">${emp.email}</a></h1>  
         
-        <h1 style = "text-align:center;font-size:12px;color:black;"> Github account: ${emp.github}</h1>
+        <h1 style = "text-align:center;font-size:12px;color:black;"> Github account: <a target = "_blank" href="https://github.com/${emp.github}">${emp.github}</a></h1>
         
         
         </div>`;
