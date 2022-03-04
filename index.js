@@ -36,10 +36,8 @@ const employeeQuestions = [
         message: 'Please Enter the posiition the employee holds:',
         type: 'list',
         choices: [
-            'Department Head',
-            'Supervisor',
             "Manager",
-            'Employee',
+            'Engineer',
             'intern'
         ],
         validate: inputVerify => {
